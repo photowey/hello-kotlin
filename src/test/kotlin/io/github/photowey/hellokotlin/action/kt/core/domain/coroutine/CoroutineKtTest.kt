@@ -121,16 +121,14 @@ object CoroutineKtTest {
     suspend fun m6() {
         coroutineScope {
             withContext(Dispatchers.IO) {
-
                 val dispatcher = currentCoroutineContext()[CoroutineDispatcher]
                 println("Current dispatcher: $dispatcher")
 
-                launch {
-
+                this.launch {
                     println("Dispatcher-1: ${currentCoroutineContext()[CoroutineDispatcher]}-${System.currentTimeMillis()}")
 
                     println("The coroutineScope-1 on the thread: ${Thread.currentThread().name}-${System.currentTimeMillis()}")
-                    launch {
+                    this.launch {
 
                         println("Dispatcher-2: ${currentCoroutineContext()[CoroutineDispatcher]}-${System.currentTimeMillis()}")
 
@@ -140,8 +138,7 @@ object CoroutineKtTest {
                     }
                     println("Child coroutine 1 completed-${System.currentTimeMillis()}")
                 }
-                launch {
-
+                this.launch {
                     println("Dispatcher-3: ${currentCoroutineContext()[CoroutineDispatcher]}-${System.currentTimeMillis()}")
 
                     println("The coroutineScope-3 on the thread: ${Thread.currentThread().name}-${System.currentTimeMillis()}")
