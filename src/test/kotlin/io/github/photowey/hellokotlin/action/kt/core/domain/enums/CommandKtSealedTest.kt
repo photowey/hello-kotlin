@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2026-present The Hello-Kotlin Authors. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.github.photowey.hellokotlin.action.kt.core.domain.enums;
+
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+/**
+ * {@code CommandKtSealedTest}.
+ *
+ * @author photowey
+ * @version 1.0.0
+ * @since 2026/01/10
+ */
+class CommandKtSealedTest {
+
+    @Test
+    fun testExec() {
+        val executed = exec(CommandKtSealed.B)
+        assertEquals("B", executed)
+    }
+
+    @Test
+    fun testExec_ext() {
+        val executed = exec(CommandKtSealed.E(10086))
+        assertEquals("10086", executed)
+    }
+}
