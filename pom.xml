@@ -51,6 +51,7 @@
 
         <kotlin.version>2.3.0</kotlin.version>
         <kotlinx-serialization-json.version>1.9.0</kotlinx-serialization-json.version>
+        <kotlinx-coroutines.version>1.10.2</kotlinx-coroutines.version>
 
         <checkstyle.version>10.21.4</checkstyle.version>
 
@@ -65,6 +66,10 @@
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
             <artifactId>kotlinx-serialization-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-core</artifactId>
         </dependency>
 
         <dependency>
@@ -85,8 +90,17 @@
             </dependency>
             <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
-                <artifactId>kotlinx-serialization-json</artifactId>
+                <artifactId>kotlinx-coroutines-bom</artifactId>
+                <version>${kotlinx-coroutines.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>kotlinx-serialization-bom</artifactId>
                 <version>${kotlinx-serialization-json.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
