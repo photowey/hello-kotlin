@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.dynamicproxy
+package io.github.photowey.hellokotlin.action.kt.core.enums
 
-import org.junit.jupiter.api.Test
+import io.github.photowey.hellokotlin.action.kt.core.enums.CommandKtEnum
+import io.github.photowey.hellokotlin.action.kt.core.enums.exec
+import io.github.photowey.hellokotlin.action.kt.core.enums.execute
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /**
@@ -25,17 +28,18 @@ import kotlin.test.assertEquals
  * @version 1.0.0
  * @since 2026/01/10
  */
-class AnimalKtTest {
+
+class CommandKtEnumTest {
 
     @Test
-    fun testZooBark() {
-        val zoo = Zoo(Dog())
-        assertEquals("Hello, Dog!", zoo.bark())
+    fun testExecute() {
+        val executed = execute(CommandKtEnum.A)
+        assertEquals("A", executed)
     }
 
     @Test
-    fun testZooOrBark() {
-        val zoo = ZooOr(Dog())
-        assertEquals("Hello, ZooOr!", zoo.bark())
+    fun testExec() {
+        val executed = exec(CommandKtEnum.B)
+        assertEquals("B", executed)
     }
 }

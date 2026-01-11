@@ -13,29 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.enums;
+package io.github.photowey.hellokotlin.action.kt.core.infixexp
 
-import kotlin.test.Test
+import io.github.photowey.hellokotlin.action.kt.core.infixexp.InfixComparatorKtSealed
+import io.github.photowey.hellokotlin.action.kt.core.infixexp.vs
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 /**
- * {@code CommandKtSealedTest}.
+ * {@code InfixComparatorKtSealedTest}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2026/01/10
  */
-class CommandKtSealedTest {
+class InfixComparatorKtSealedTest {
 
     @Test
-    fun testExec() {
-        val executed = exec(CommandKtSealed.B)
-        assertEquals("B", executed)
+    fun testVs() {
+        val rvt: InfixComparatorKtSealed = (5 vs 6)
+        assertEquals(InfixComparatorKtSealed.LT, rvt)
     }
 
     @Test
-    fun testExec_ext() {
-        val executed = exec(CommandKtSealed.E(10086))
-        assertEquals("10086", executed)
+    fun testVs_2() {
+        val rvt: InfixComparatorKtSealed = 7.vs(6)
+        assertEquals(InfixComparatorKtSealed.GT, rvt)
     }
 }

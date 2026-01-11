@@ -13,13 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.scope;
+package io.github.photowey.hellokotlin.action.kt.core.enums
 
 /**
- * {@code DataScopeUser}.
+ * {@code CommandKtEnum}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2026/01/10
  */
-data class DataScopeUser(val id: Long, var name: String, val age: Int)
+enum class CommandKtEnum {
+
+    A,
+    B,
+    C,
+    D
+}
+
+fun execute(command: CommandKtEnum): String {
+    return when (command) {
+        CommandKtEnum.A -> "A"
+        CommandKtEnum.B -> "B"
+        CommandKtEnum.C -> "C"
+        CommandKtEnum.D -> "D"
+    }
+}
+
+fun exec(command: CommandKtEnum): String = when (command) {
+    CommandKtEnum.A -> "A"
+    CommandKtEnum.B -> "B"
+    CommandKtEnum.C -> "C"
+    CommandKtEnum.D -> "D"
+}

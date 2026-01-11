@@ -13,15 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.coroutine;
+package io.github.photowey.hellokotlin.action.kt.core.dynamicproxy
+
+import io.github.photowey.hellokotlin.action.kt.core.dynamicproxy.Dog
+import io.github.photowey.hellokotlin.action.kt.core.dynamicproxy.Zoo
+import io.github.photowey.hellokotlin.action.kt.core.dynamicproxy.ZooOr
+import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 /**
- * {@code CoroutineKt}.
+ * {@code AnimalKtTest}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2026/01/10
  */
-class CoroutineKt {
-    // do nothing now.
+class AnimalKtTest {
+
+    @Test
+    fun testZooBark() {
+        val zoo = Zoo(Dog())
+        assertEquals("Hello, Dog!", zoo.bark())
+    }
+
+    @Test
+    fun testZooOrBark() {
+        val zoo = ZooOr(Dog())
+        assertEquals("Hello, ZooOr!", zoo.bark())
+    }
 }

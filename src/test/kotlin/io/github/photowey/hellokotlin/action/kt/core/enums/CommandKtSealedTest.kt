@@ -13,47 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.enums;
+package io.github.photowey.hellokotlin.action.kt.core.enums
+
+import io.github.photowey.hellokotlin.action.kt.core.enums.CommandKtSealed
+import io.github.photowey.hellokotlin.action.kt.core.enums.exec
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 /**
- * {@code CommandKtSealed}.
+ * {@code CommandKtSealedTest}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2026/01/10
  */
-sealed class CommandKtSealed {
+class CommandKtSealedTest {
 
-    object A : CommandKtSealed()
-    object B : CommandKtSealed()
-    object C : CommandKtSealed()
-    object D : CommandKtSealed()
-    class E(val action: Int) : CommandKtSealed() {
-        fun print(): String {
-            return action.toString()
-        }
-
-    }
-}
-
-fun exec(command: CommandKtSealed): String = when (command) {
-    CommandKtSealed.A -> {
-        "A"
+    @Test
+    fun testExec() {
+        val executed = exec(CommandKtSealed.B)
+        assertEquals("B", executed)
     }
 
-    CommandKtSealed.B -> {
-        "B"
-    }
-
-    CommandKtSealed.C -> {
-        "C"
-    }
-
-    CommandKtSealed.D -> {
-        "D"
-    }
-
-    is CommandKtSealed.E -> {
-        return command.print()
+    @Test
+    fun testExec_ext() {
+        val executed = exec(CommandKtSealed.E(10086))
+        assertEquals("10086", executed)
     }
 }

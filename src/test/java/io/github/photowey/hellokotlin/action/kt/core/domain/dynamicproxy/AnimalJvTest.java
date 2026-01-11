@@ -18,6 +18,10 @@ package io.github.photowey.hellokotlin.action.kt.core.domain.dynamicproxy;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import io.github.photowey.hellokotlin.action.kt.core.dynamicproxy.Dog;
+import io.github.photowey.hellokotlin.action.kt.core.dynamicproxy.Zoo;
+import io.github.photowey.hellokotlin.action.kt.core.dynamicproxy.ZooOr;
+
 /**
  * {@code AnimalJvTest}.
  *

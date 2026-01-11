@@ -13,30 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.enums
-
-import kotlin.test.Test
-import kotlin.test.assertEquals
+package io.github.photowey.hellokotlin.action.kt.core.dynamicproxy
 
 /**
- * {@code AnimalKtTest}.
+ * {@code AnimalKt}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2026/01/10
  */
+interface AnimalKt {
+    fun bark(): String
+}
 
-class CommandKtEnumTest {
+class Dog : AnimalKt {
 
-    @Test
-    fun testExecute() {
-        val executed = execute(CommandKtEnum.A)
-        assertEquals("A", executed)
+    override fun bark(): String {
+        return "Hello, Dog!"
+
     }
+}
 
-    @Test
-    fun testExec() {
-        val executed = exec(CommandKtEnum.B)
-        assertEquals("B", executed)
+class Zoo(animal: AnimalKt) : AnimalKt by animal
+
+class ZooOr(animal: AnimalKt) : AnimalKt by animal {
+    override fun bark(): String {
+        return "Hello, ZooOr!"
     }
 }

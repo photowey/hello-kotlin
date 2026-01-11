@@ -13,31 +13,47 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.dynamicproxy
+package io.github.photowey.hellokotlin.action.kt.core.enums
 
 /**
- * {@code AnimalKt}.
+ * {@code CommandKtSealed}.
  *
  * @author photowey
  * @version 1.0.0
  * @since 2026/01/10
  */
-interface AnimalKt {
-    fun bark(): String
-}
+sealed class CommandKtSealed {
 
-class Dog : AnimalKt {
-
-    override fun bark(): String {
-        return "Hello, Dog!"
+    object A : CommandKtSealed()
+    object B : CommandKtSealed()
+    object C : CommandKtSealed()
+    object D : CommandKtSealed()
+    class E(val action: Int) : CommandKtSealed() {
+        fun print(): String {
+            return action.toString()
+        }
 
     }
 }
 
-class Zoo(animal: AnimalKt) : AnimalKt by animal
+fun exec(command: CommandKtSealed): String = when (command) {
+    CommandKtSealed.A -> {
+        "A"
+    }
 
-class ZooOr(animal: AnimalKt) : AnimalKt by animal {
-    override fun bark(): String {
-        return "Hello, ZooOr!"
+    CommandKtSealed.B -> {
+        "B"
+    }
+
+    CommandKtSealed.C -> {
+        "C"
+    }
+
+    CommandKtSealed.D -> {
+        "D"
+    }
+
+    is CommandKtSealed.E -> {
+        return command.print()
     }
 }

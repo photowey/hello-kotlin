@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.photowey.hellokotlin.action.kt.core.domain.coroutine
+package io.github.photowey.hellokotlin.action.kt.core.coroutine
 
+import io.github.photowey.hellokotlin.action.kt.core.coroutine.sequence
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
